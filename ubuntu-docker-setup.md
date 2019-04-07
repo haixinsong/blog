@@ -1,6 +1,7 @@
 # ubuntu18.04环境下docker设置指南
-[^_^]: # (name:ubuntu-docker-setup)
+[^_^]: # (url:ubuntu-docker-setup)
 [^_^]: # (tag:#tech,note,setup,docker)
+[^_^]: # (excerpt:在ubuntu18.04下安装docker和docker-compose)
 
 ## 安装docker
 
