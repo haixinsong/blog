@@ -1,6 +1,6 @@
 # 如何设置docker-hub的头像
 [^_^]: # (url:docker-hub-avatar-setup)
-[^_^]: # (tag:#tech,note,setup,docker,docker-hub)
+[^_^]: # (tag:note,setup,docker,docker-hub,#tech)
 [^_^]: # (excerpt:正确自定义Docker Hub的头像)
 
 ## Docker Hub
