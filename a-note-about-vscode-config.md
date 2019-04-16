@@ -18,50 +18,50 @@
 
 - 关闭反馈
 
-  ```bash
+  ```json
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false
   ```
 
 - 自动换行
 
-  ```bash
+  ```json
   "editor.wordWrap": "on"
   ```
 
 - 鼠标滚轮滑动缩放
 
-  ```bash
+  ```json
   "editor.mouseWheelZoom": true
   ```
 
 - 标题栏显示文件完整路径
 
-  ```bash
+  ```json
   "window.title": "${activeEditorLong}"
   ```
 
 - 取消针对不同文件应用不同设置(可解决 windows 与 ubuntu tab 键缩进空格数不一致的问题)
 
-  ```bash
+  ```json
   "editor.detectIndentation": false
   ```
 
 - 删除文件不需要二次确认
 
-  ```bash
+  ```json
   "explorer.confirmDelete": false
   ```
 
 - 输入时自动格式化代码
 
-  ```bash
+  ```json
   "editor.formatOnType": true
   ```
 
 - 保存时自动格式化代码
 
-  ```bash
+  ```json
   "editor.formatOnSave": true
   ```
 
@@ -69,7 +69,7 @@
 
 - Material Theme
 
-  ```bash
+  ```json
   "workbench.iconTheme": "eq-material-theme-icons",
   "workbench.colorTheme": "Material Theme"
   ```
@@ -78,7 +78,7 @@
 
 - all settings
 
-  ```bash
+  ```json
   "update.mode": "manual",
   "update.enableWindowsBackgroundUpdates": false,
   "telemetry.enableCrashReporter": false,
