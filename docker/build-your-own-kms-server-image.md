@@ -33,7 +33,7 @@ LABEL maintainer="varnediiii@gmail.com"
 RUN apk add --no-cache curl
 
 # download latest vlmcsd releases 下载最新的release
-RUN wget $(curl -s https://api.github.com/repos/Wind4/vlmcsd/releases/latest | grep binaries.tar.gz |tail -n 1| cut -d '"' -f 4) 
+RUN wget $(curl -s https://api.github.com/repos/Wind4/vlmcsd/releases/latest | grep binaries.tar.gz |tail -n 1| cut -d '"' -f 4)
 
 RUN tar -zxvf binaries.tar.gz
 
@@ -61,8 +61,6 @@ docker build . -t nediiii/kms-server
 ```
 
 一切顺利的情况下，运行`docker images`命令即可看到上面构建的`nediiii/kms-server`镜像了。
-
-
 
 ## 测试镜像功能
 
