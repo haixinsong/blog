@@ -76,7 +76,8 @@ Docker 是 CS 架构的软件, 而采用 CS 架构的软件大都有一个优点
 所以,将 docker 服务运行于 VMware 的虚拟机里, 在 Windows 上使用 docker 的 cli 与 vm 里的 docker 服务通信就可以了
 方法很简单, 但是单纯这样做会有几点问题:
 
-1. docker 运行在了 vm 里,使用的是 vm 的端口, docker 运行的所有服务,都只能通过 vm 的 IP 去访问 2. Windows 与 Linux 文件系统的不同,导致无法直接卷映射
+1. docker 运行在了 vm 里,使用的是 vm 的端口, docker 运行的所有服务,都只能通过 vm 的 IP 去访问
+2. Windows 与 Linux 文件系统的不同,导致无法直接卷映射
 
 为了解决上面两点不足, 用到了 wsl 和 hosts 文件:
 
@@ -272,9 +273,28 @@ docker run -itd -p 88:80 -v $PWD:/usr/share/nginx/html nginx:alpine
 
 ![volume-map-browser](..\img-store\post\windows-docker-in-vmware\volume-map-browser.png)
 
-### 缺陷
+### 完善
 
 1. 如果虚拟机重启, 则设置的文件共享会失效,需要重新设置
+
+   不推荐重启虚拟机, 当电脑关机时系统回自动挂起虚拟机, 所以配合下面的自启脚本,基本可以不用管理虚拟机的启动问题.
+
+   但总会遇到要重启虚拟机的情况, 在这里提供一个重新设置文件共享的 bat 脚本(请根据自身情况修改路径信息)
+
+   ```bat
+   "C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe" disableSharedFolders "D:\vmware\dev\dev.vmx"
+
+   "C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe" enableSharedFolders "D:\vmware\dev\dev.vmx"
+   ```
+
+   再顺带提供一个后台启动虚拟机的脚本(将脚本加入到开机自启即可)
+
+   ```bat
+   "C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe" start "D:\vmware\dev\dev.vmx" nogui
+   ```
+
 2. 卷映射需要 wsl 环境来操作,才能匹配文件路径
+
+至此, 大部分的问题被完美解决, 小部分问题无伤大雅.
 
 如果您发现有其他的问题, 欢迎留言探讨.
